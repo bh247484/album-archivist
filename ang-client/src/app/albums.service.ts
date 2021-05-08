@@ -9,10 +9,12 @@ export class AlbumsService {
   constructor() { }
 
   getAllAlbums() {
-    return this.allAlbums;
+    return this.allAlbums.reverse();
   }
   createAlbum(newAlbum: albumType) {
+    console.log('newAlbum = ', newAlbum)
     this.allAlbums.push(newAlbum)
+    console.log('allAlbums = ', this.allAlbums)
   }
   deleteAlbum(id: number) {
     this.allAlbums = this.allAlbums.filter(album => album.id === id)
