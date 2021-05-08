@@ -1,0 +1,27 @@
+<div>
+  <h3>Preview</h3>
+  <h3>{{ album.title }}</h3>
+  <p>{{ album.year }}</p>
+  <img width="250px" [src]="album.cover">
+  <h4>{{ album.artist }}</h4>
+  <p>{{ album.genre }}</p>
+</div>
+
+<form (ngSubmit)="onSubmit($event)" #albumForm="ngForm">
+  <label for="artist">Artist</label>
+  <input [(ngModel)]="album.artist" name="artist" type="text" id="artist" required />
+
+  <label for="title">Title</label>
+  <input [(ngModel)]="album.title" name="title" type="text" id="title" required />
+
+  <label for="cover">Cover Art URL</label>
+  <input [(ngModel)]="album.cover" name="cover" type="text" id="cover" required />
+
+  <label for="genre">Genre</label>
+  <input [(ngModel)]="album.genre" name="genre" type="text" id="genre" required />
+
+  <label for="year">Year</label>
+  <input [(ngModel)]="album.year" name="year" type="number" id="year" required />
+
+  <button type="submit">Update Album</button>
+</form>
