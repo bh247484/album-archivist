@@ -12,6 +12,13 @@ export class AlbumListComponent implements OnInit {
   constructor(private albumsService: AlbumsService) { }
 
   ngOnInit(): void {
+    console.log(this.albums)
+  }
+
+  removeAlbum(albumId: string): void {
+    this.albumsService.deleteAlbum(albumId)
+    // console.log(albumId)
+    this.albums = this.albumsService.getAllAlbums();
   }
 
 }

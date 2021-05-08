@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { NewAlbumFormComponent } from './new-album-form/new-album-form.component';
+import { ShowAlbumComponent } from './show-album/show-album.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NewAlbumFormComponent } from './new-album-form/new-album-form.component
     TopNavBarComponent,
     AlbumListComponent,
     NewAlbumFormComponent,
+    ShowAlbumComponent,
   ],
   imports: [
     BrowserModule,

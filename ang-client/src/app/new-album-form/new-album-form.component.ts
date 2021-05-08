@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { albumType } from '../fakeData/fakeData';
 import { AlbumsService } from '../albums.service';
 import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-new-album-form',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NewAlbumFormComponent implements OnInit {
   model: albumType = {
-    id: Math.random(),
+    id: uuidv4(),
     artist: 'Enter Artist Name',
     cover: 'Enter URL Cover Image',
     genre: 'Enter Genre',
@@ -26,7 +27,6 @@ export class NewAlbumFormComponent implements OnInit {
     event.preventDefault();
     this.albumsService.createAlbum(this.model)
     this.router.navigate(['/'])
-    console.log(this.model)
   }
 
 }

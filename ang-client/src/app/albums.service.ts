@@ -11,16 +11,17 @@ export class AlbumsService {
   getAllAlbums() {
     return this.allAlbums.reverse();
   }
-  createAlbum(newAlbum: albumType) {
-    console.log('newAlbum = ', newAlbum)
-    this.allAlbums.push(newAlbum)
-    console.log('allAlbums = ', this.allAlbums)
+  getAlbum(id: string) {
+    return this.allAlbums.find(album => album.id === id)
   }
-  deleteAlbum(id: number) {
-    this.allAlbums = this.allAlbums.filter(album => album.id === id)
+  createAlbum(newAlbum: albumType) {
+    this.allAlbums.push(newAlbum)
+  }
+  deleteAlbum(id: string) {
+    this.allAlbums = this.allAlbums.filter(album => album.id !== id)
   }
   updateAlbum(updatedAlbum: albumType) {
-    this.allAlbums = this.allAlbums.filter(album => album.id === updatedAlbum.id)
+    this.allAlbums = this.allAlbums.filter(album => album.id !== updatedAlbum.id)
     this.createAlbum(updatedAlbum)
   }
 }
