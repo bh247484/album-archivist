@@ -1,4 +1,4 @@
-<h1>Navbar</h1>
-<a [routerLink]="['/new']">
-  <button>Add new Album</button>
-</a>
+<mat-toolbar [ngStyle]="{'justify-content': 'space-between'}">
+  <span>Album Archive</span>
+  <a [routerLink]="['/new']"><button mat-flat-button color="primary">Add New Album</button></a>
+</mat-toolbar>

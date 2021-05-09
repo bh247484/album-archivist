@@ -1,0 +1,13 @@
+<mat-card [ngStyle]="{'max-width': '400px'}">
+  <mat-card-header [ngStyle]="{'margin': '0px'}">
+    <mat-card-title>{{ album.title }}</mat-card-title>
+    <mat-card-subtitle>{{ album.artist }}</mat-card-subtitle>
+  </mat-card-header>
+  <a [routerLink]="['/show_album', album.id]">
+    <img width="400px" [src]="album.cover" alt="album-cover">
+  </a>
+  <div [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
+    <mat-card-subtitle>{{ album.genre }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ album.year }}</mat-card-subtitle>
+  </div>
+</mat-card>

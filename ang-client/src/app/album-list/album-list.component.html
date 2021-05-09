@@ -1,14 +1,7 @@
 <div *ngFor="let album of albums">
   <div>
-    <a [routerLink]="['/show_album', album.id]">
-      <h3>{{ album.title }}</h3>
-    </a>
-    <p>{{ album.year }}</p>
-    <a [routerLink]="['/show_album', album.id]">
-      <img width="250px" [src]="album.cover">
-    </a>
-    <h4>{{ album.artist }}</h4>
-    <p>{{ album.genre }}</p>
+    <app-album-card [album]="album"></app-album-card>
+
     <button (click)="removeAlbum(album.id)">Delete Album</button>
     <br />
     <br />
