@@ -40,7 +40,7 @@ async def root():
 
 @app.get("/all_albums", response_model=List[schemas.Album])
 def all_albums(db: Session = Depends(get_db)):
-    return crud.get_all_albums()
+    return crud.get_all_albums(db)
 
 @app.get("/album/{album_id}", response_model=schemas.Album)
 def single_album(album_id: str, db: Session = Depends(get_db)):
@@ -49,10 +49,10 @@ def single_album(album_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Album not found")
     return db_album
 
-@app.patch("/patch_album/{album_id}", response_model=schemas.Album)
+@app.patch("/patch_album/{album_id}")
 def patch_album(updates: schemas.Album, album_id: str, db: Session = Depends(get_db)):
-    crud.update_album(db=db, id=album_id, updates=updates)
+    return crud.update_album(db=db, id=album_id, updates=updates)
 
-@app.delete("/album/{album_id}", response_model=schemas.Album)
+@app.delete("/album/{album_id}")
 def delete_album(album_id: str, db: Session = Depends(get_db)):
     crud.remove_album(db=db, id=album_id)

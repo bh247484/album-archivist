@@ -16,10 +16,10 @@ def create_album(db: Session, album: schemas.Album):
     return db_album
 
 def update_album(db: Session, id: str, updates):
-    db.query(models.Album).filter(models.Album.id == id).first().update(dict(updates))
+    db_album = db.query(models.Album).filter(models.Album.id == id).update(dict(updates))
     db.commit()
+    return db_album
 
 def remove_album(db: Session, id: str):
     db.query(models.Album).filter_by(id=id).delete()
     db.commit()
-    
