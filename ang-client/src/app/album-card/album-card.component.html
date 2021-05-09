@@ -4,7 +4,7 @@
     <mat-card-subtitle>{{ album.artist }}</mat-card-subtitle>
   </mat-card-header>
   <a [routerLink]="['/show_album', album.id]">
-    <img width="400px" [src]="album.cover">
+    <img class="cover-image" width="400px" [src]="album.cover">
   </a>
   <div [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
     <mat-card-subtitle>{{ album.genre }}</mat-card-subtitle>

@@ -16,7 +16,7 @@ export class NewAlbumFormComponent implements OnInit {
     cover: '',
     genre: '',
     title: '',
-    year: 0,
+    year: undefined,
   }
   constructor(private albumsService: AlbumsService, private router: Router) { }
 

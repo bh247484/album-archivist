@@ -6,7 +6,7 @@ export type albumType = {
   cover: string,
   genre: string,
   title: string,
-  year: number
+  year: number | undefined
 }
 
 export const fakeAlbums: Array<albumType> = [
