@@ -12,10 +12,10 @@ import { v4 as uuidv4 } from 'uuid';
 export class NewAlbumFormComponent implements OnInit {
   model: albumType = {
     id: uuidv4(),
-    artist: 'Enter Artist Name',
-    cover: 'Enter URL Cover Image',
-    genre: 'Enter Genre',
-    title: 'Enter Title',
+    artist: '',
+    cover: '',
+    genre: '',
+    title: '',
     year: 0,
   }
   constructor(private albumsService: AlbumsService, private router: Router) { }

@@ -1,4 +1,8 @@
-<mat-toolbar [ngStyle]="{'justify-content': 'space-between'}">
+<mat-toolbar class="top-nav" [ngStyle]="{'justify-content': 'space-between'}">
   <span>Album Archive</span>
-  <a [routerLink]="['/new']"><button mat-flat-button color="primary">Add New Album</button></a>
+  <span>
+    <a [routerLink]="['/']"><button [ngStyle]="{'margin-right': '8px'}" mat-flat-button color="primary">Show
+        All</button></a>
+    <a [routerLink]="['/new']"><button mat-flat-button color="primary">Add New Album</button></a>
+  </span>
 </mat-toolbar>

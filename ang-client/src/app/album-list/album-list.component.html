@@ -2,7 +2,10 @@
   <div>
     <app-album-card [album]="album"></app-album-card>
 
-    <button (click)="removeAlbum(album.id)">Delete Album</button>
+    <button (click)="removeAlbum(album.id)" [ngStyle]="{'width': '433px'}" mat-flat-button color="primary">
+      Delete Album
+    </button>
+
     <br />
     <br />
     <br />

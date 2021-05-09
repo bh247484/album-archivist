@@ -1,4 +1,4 @@
-<a [routerLink]="['/show_album', album.id]">
+<!-- <a [routerLink]="['/show_album', album.id]">
   <h3>{{ album.title }}</h3>
 </a>
 <p>{{ album.year }}</p>
@@ -6,8 +6,9 @@
   <img width="250px" [src]="album.cover">
 </a>
 <h4>{{ album.artist }}</h4>
-<p>{{ album.genre }}</p>
+<p>{{ album.genre }}</p> -->
+<app-album-card [album]="album"></app-album-card>
 
 <a [routerLink]="['/update_album', album.id]">
-  <button>Update Album</button>
+  <button [ngStyle]="{'width': '433px'}" mat-flat-button color="primary">Update Album</button>
 </a>
