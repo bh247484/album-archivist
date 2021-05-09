@@ -1,13 +1,19 @@
-<div *ngFor="let album of albums">
-  <div>
-    <app-album-card [album]="album"></app-album-card>
+<div *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
 
-    <button (click)="removeAlbum(album.id)" [ngStyle]="{'width': '433px'}" mat-flat-button color="primary">
-      Delete Album
-    </button>
+<div *ngIf="!loading">
+  <div *ngFor="let album of albums">
+    <div>
+      <app-album-card [album]="album"></app-album-card>
 
-    <br />
-    <br />
-    <br />
+      <button (click)="removeAlbum(album.id)" [ngStyle]="{'width': '433px'}" mat-flat-button color="primary">
+        Delete Album
+      </button>
+
+      <br />
+      <br />
+      <br />
+    </div>
   </div>
 </div>

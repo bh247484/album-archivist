@@ -8,10 +8,15 @@ import { AlbumsService } from '../albums.service';
 })
 export class AlbumListComponent implements OnInit {
   albums = this.albumsService.getAllAlbums();
+  loading: Boolean = true;
 
   constructor(private albumsService: AlbumsService) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+      this.albums = this.albumsService.getAllAlbums();
+    }, 750)
   }
 
   removeAlbum(albumId: string): void {
