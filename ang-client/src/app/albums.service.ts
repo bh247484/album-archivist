@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { albumType, fakeAlbums } from './fakeData/fakeData';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumsService {
   allAlbums: Array<albumType>;
+  loadEvent: Subject<string> = new Subject<string>();
 
   constructor(private http: HttpClient) {
+    // this.http.get<albumType[]>('http://localhost:8000/all_albums')
+    //   .toPromise()
+    //   .then(data => this.allAlbums = data)
     this.http.get<albumType[]>('http://localhost:8000/all_albums')
-      .toPromise()
-      .then(data => this.allAlbums = data)
+      .subscribe((data) => {
+        this.allAlbums = data;
+        this.loadEvent.next('Albums Loaded')
+      })
   }
 
   getAllAlbums() {

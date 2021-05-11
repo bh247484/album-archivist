@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumsService } from '../albums.service';
+import { albumType } from '../fakeData/fakeData';
 
 @Component({
   selector: 'app-album-list',
@@ -7,16 +8,22 @@ import { AlbumsService } from '../albums.service';
   styleUrls: ['./album-list.component.css']
 })
 export class AlbumListComponent implements OnInit {
-  albums = this.albumsService.getAllAlbums();
+  albums: Array<albumType> | null;
   loading: Boolean = true;
 
   constructor(private albumsService: AlbumsService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
+    if (this.albumsService.getAllAlbums()) {
+      this.albums = this.albumsService.getAllAlbums()
       this.loading = false;
-      this.albums = this.albumsService.getAllAlbums();
-    }, 750)
+    } else {
+      this.albumsService.loadEvent.subscribe((message) => {
+        console.log(message)
+        this.albums = this.albumsService.getAllAlbums();
+        this.loading = false;
+      })
+    }
   }
 
   removeAlbum(albumId: string): void {
