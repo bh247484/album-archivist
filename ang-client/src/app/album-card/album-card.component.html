@@ -3,9 +3,14 @@
     <mat-card-title>{{ album.title }}</mat-card-title>
     <mat-card-subtitle>{{ album.artist }}</mat-card-subtitle>
   </mat-card-header>
-  <a [routerLink]="['/show_album', album.id]">
-    <img class="cover-image" width="400px" [src]="album.cover">
-  </a>
+  <div class="cover-container">
+    <div class="sound-btn-container">
+      <button (click)="playSound()" class="sound-btn" mat-flat-button color="primary">#</button>
+    </div>
+    <a [routerLink]="['/show_album', album.id]">
+      <img class="cover-image" width="400px" [src]="album.cover">
+    </a>
+  </div>
   <div [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
     <mat-card-subtitle>{{ album.genre }}</mat-card-subtitle>
     <mat-card-subtitle>{{ album.year }}</mat-card-subtitle>

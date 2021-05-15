@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -12,4 +13,8 @@ export class TopNavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  async enableAudio(): Promise<void> {
+    await Tone.start()
+    Tone.Transport.start();
+  }
 }

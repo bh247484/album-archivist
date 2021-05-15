@@ -50,3 +50,20 @@ form {
 .cover-image { border-radius: 5px; }
 
 .mat-progress-spinner circle, .mat-spinner circle { stroke: white; }
+
+.cover-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+.cover-container:hover .sound-btn { visibility: visible; }
+
+.sound-btn-container {
+  position: absolute;
+}
+.sound-btn {
+  border-radius: 20px;
+  visibility: hidden;
+}

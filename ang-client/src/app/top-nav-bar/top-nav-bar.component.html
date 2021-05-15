@@ -1,6 +1,9 @@
 <mat-toolbar class="top-nav" [ngStyle]="{'justify-content': 'space-between'}">
   <span>Album Archive</span>
   <span>
+    <button (click)="enableAudio()" mat-flat-button color="primary" [ngStyle]="{'margin-right': '8px'}">
+      Enable Audio
+    </button>
     <a [routerLink]="['/']"><button [ngStyle]="{'margin-right': '8px'}" mat-flat-button color="primary">Show
         All</button></a>
     <a [routerLink]="['/new']"><button mat-flat-button color="primary">Add New Album</button></a>

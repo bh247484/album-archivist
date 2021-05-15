@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from sqlalchemy.orm import Session
 
-import crud, models, schemas
+import crud, models, schemas, image_analysis
 from database import SessionLocal, engine, Base
 
 Base.metadata.create_all(bind=engine)
@@ -56,3 +56,8 @@ def patch_album(updates: schemas.Album, album_id: str, db: Session = Depends(get
 @app.delete("/album/{album_id}")
 def delete_album(album_id: str, db: Session = Depends(get_db)):
     crud.remove_album(db=db, id=album_id)
+
+# image data fetching
+@app.post("/image_data")
+def process_req(req: image_analysis.Req):
+    return image_analysis.analyze_image(req.url)
