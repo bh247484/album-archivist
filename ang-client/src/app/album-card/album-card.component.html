@@ -5,7 +5,7 @@
   </mat-card-header>
   <div class="cover-container">
     <div class="sound-btn-container">
-      <button (click)="playSound()" class="sound-btn" mat-flat-button color="primary">#</button>
+      <button (click)="playSound()" class="sound-btn" mat-mini-fab color="primary">🔉</button>
     </div>
     <a [routerLink]="['/show_album', album.id]">
       <img class="cover-image" width="400px" [src]="album.cover">

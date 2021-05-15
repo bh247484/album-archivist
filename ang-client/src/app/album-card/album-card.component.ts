@@ -40,6 +40,16 @@ export class AlbumCardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    if (this.album) this.generateSoundSig();
+  }
+
+  playSound(): void {
+    this.seq.stop(Tone.now())
+    this.seq.start(Tone.now())
+    console.log('Sequence Triggered')
+  }
+
+  generateSoundSig(): void {
     this.http.post<ImageData>('http://localhost:8000/image_data', JSON.stringify({ url: this.album.cover }))
       .subscribe((data) => {
         console.log(`${this.album.title}'s ImgData: `, data);
@@ -82,11 +92,4 @@ export class AlbumCardComponent implements OnInit {
         if (brightness > 100) this.synth.filterEnvelope.octaves = 3
       })
   }
-
-  playSound(): void {
-    this.seq.stop(Tone.now())
-    this.seq.start(Tone.now())
-    console.log('sound play')
-  }
-
 }

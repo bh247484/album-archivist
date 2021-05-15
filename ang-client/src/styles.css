@@ -63,7 +63,6 @@ form {
 .sound-btn-container {
   position: absolute;
 }
-.sound-btn {
-  border-radius: 20px;
-  visibility: hidden;
-}
+.sound-btn { visibility: hidden; }
+
+button.mat-primary { background-color: #4d225f !important;}
