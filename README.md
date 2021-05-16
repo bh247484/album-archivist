@@ -1,4 +1,6 @@
-## Simple Album Archive CRUD App
+## Album Archive App with Image Generated Audio Signatures\*\*
+\*\*Now 10% more interesting than a typical CRUD app
+
 
 ### Built with Angular frontend and FastAPI/SQLite backend
 
@@ -16,6 +18,9 @@ Server Side
 
 ### Screen Capture Demos
 
+#### Audio Signatures Generated Programmatically by Cover Image Data >>> (unmute embedded video for sound)
+
+https://user-images.githubusercontent.com/57693937/118404453-e325ce80-b640-11eb-9d32-7983a936dc01.mp4
 
 #### Show All Route
 https://user-images.githubusercontent.com/57693937/117589712-38ba2280-b0f9-11eb-9c70-c92b9d24db2d.mp4
