@@ -17,11 +17,6 @@ def analyze_image(url):
 
     img = Image.open(requests.get(url, stream=True).raw)
 
-    # def bound(value, low=0, high=11):
-    #     diff = high - low
-    #     return (((value - low) % diff) + low)
-
-    # payload['key'] = bound(img.height * img.width)
     payload['key'] = ((img.height * img.width) + random.randint(0, 10)) % 12
 
     red = np.array(img.getchannel('R'))
