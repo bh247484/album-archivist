@@ -13,7 +13,8 @@ import { ImageData } from './imageData';
 export class AlbumCardComponent implements OnInit {
   @Input() album: albumType;
   imageData: ImageData;
-  delay = new Tone.FeedbackDelay("8n", 0.15).toDestination();
+  limiter = new Tone.Limiter(-15).toDestination();
+  delay = new Tone.FeedbackDelay("8n", 0.1).connect(this.limiter);
   vibe = new Tone.Vibrato(2, 0.3).connect(this.delay)
   chorus = new Tone.Chorus(5, 2.0, 0.7).connect(this.vibe);
   synth = new Tone.MonoSynth({
@@ -29,7 +30,7 @@ export class AlbumCardComponent implements OnInit {
       decay: 0.7,
       sustain: 0.1,
       release: 0.8,
-      baseFrequency: 500,
+      baseFrequency: 400,
       octaves: 2
     }
   }).connect(this.chorus);
@@ -82,13 +83,13 @@ export class AlbumCardComponent implements OnInit {
         const [hue, sat, brightness] = this.imageData.hsv_means
 
         if (hue % 3 == 0) {
-          this.synth.oscillator.type = "pulse"
+          this.synth.oscillator.type = "square8"
         } else if (hue % 2 == 0) {
           this.synth.oscillator.type = "triangle"
         } else {
           this.synth.oscillator.type = "sawtooth"
         }
-        if (sat > 100) this.delay.set({ feedback: 0.3 })
+        if (sat > 100) this.delay.set({ wet: 0.70 })
         if (brightness > 100) this.synth.filterEnvelope.octaves = 3
       })
   }
