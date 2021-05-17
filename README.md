@@ -13,7 +13,7 @@ Client Side
 Server Side
 1. `cd py_server`
 2. Setup python env of your choice or install the following globally
-3. `pip3 install fastapi uvicorn[standard] sqlalchemy numpy Pillow`
+3. `pip3 install fastapi uvicorn[standard] sqlalchemy requests numpy Pillow`
 4. `uvicorn main:app --reload` to start server
 
 ### Screen Capture Demos
