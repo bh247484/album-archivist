@@ -1,8 +1,7 @@
 ## Album Archive App with Image Generated Audio Signatures\*\*
 \*\*Now 10% more interesting than a typical CRUD app
 
-Image color values affect musical scale modes and synthesizer oscillator waveforms/filter settings.
-
+Programmatically generates simple synthesizer melodies based image color values. The color values affect musical scale modes, sequence patterns, and synthesizer oscillator waveforms/filter settings. The code that generates the melodies can be found [here](https://github.com/bh247484/album-archivist/blob/master/ang-client/src/app/album-card/album-card.component.ts).
 
 ### Built with Angular frontend and FastAPI/SQLite backend
 
