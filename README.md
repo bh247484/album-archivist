@@ -1,6 +1,8 @@
 ## Album Archive App with Image Generated Audio Signatures\*\*
 \*\*Now 10% more interesting than a typical CRUD app
 
+Image color values affect musical scale modes and synthesizer oscillator waveforms/filter settings.
+
 
 ### Built with Angular frontend and FastAPI/SQLite backend
 
